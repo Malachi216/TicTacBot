@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    padding: 20px;
+}
+
+canvas {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    max-width: 90%;
+}
