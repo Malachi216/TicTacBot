@@ -1,48 +1,34 @@
-const upload = document.getElementById('upload');
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-const download = document.getElementById('download');
+document.getElementById('upload-button').addEventListener('click', async () => {
+    const fileInput = document.getElementById('game-image');
+    const outputImg = document.getElementById('predicted-move');
 
-upload.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+    if (fileInput.files.length === 0) {
+        alert('Please upload an image!');
+        return;
+    }
 
-    reader.onload = function () {
-        const img = new Image();
-        img.src = reader.result;
+    const file = fileInput.files[0];
 
-        img.onload = function () {
-            // Set canvas dimensions to match the image
-            canvas.width = img.width;
-            canvas.height = img.height;
+    // Simulate sending the file to the backend and getting the prediction
+    const formData = new FormData();
+    formData.append('image', file);
 
-            // Draw the image on the canvas
-            ctx.drawImage(img, 0, 0);
+    try {
+        // Send to the backend (adjust the URL as needed)
+        const response = await fetch('https://your-backend-service/api/predict', {
+            method: 'POST',
+            body: formData,
+        });
 
-            // Apply a simple filter (e.g., grayscale)
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imageData.data;
+        if (!response.ok) {
+            throw new Error('Failed to predict');
+        }
 
-            for (let i = 0; i < data.length; i += 4) {
-                const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-                data[i] = avg; // Red
-                data[i + 1] = avg; // Green
-                data[i + 2] = avg; // Blue
-            }
-
-            ctx.putImageData(imageData, 0, 0);
-
-            // Enable the download button
-            download.disabled = false;
-        };
-    };
-
-    reader.readAsDataURL(file);
-});
-
-download.addEventListener('click', () => {
-    const link = document.createElement('a');
-    link.download = 'processed-image.png';
-    link.href = canvas.toDataURL();
-    link.click();
+        const data = await response.json();
+        outputImg.src = data.predictedImageUrl; // The URL of the generated image
+        outputImg.style.display = 'block';
+    } catch (error) {
+        console.error(error);
+        alert('Error predicting the next move.');
+    }
 });

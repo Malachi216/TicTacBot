@@ -9,11 +9,16 @@
 <body>
     <div class="container">
         <h1>TicTacBot</h1>
-        <input type="file" id="upload" accept="image/*" />
-        <canvas id="canvas"></canvas>
-        <button id="download" disabled>Download Processed Image</button>
+        <p>Upload a Tic-Tac-Toe game image, and the AI will predict the best move!</p>
+        <div class="upload-box">
+            <input type="file" id="game-image" accept="image/*">
+            <button id="upload-button">Upload & Predict</button>
+        </div>
+        <div id="output-box">
+            <h2>Prediction:</h2>
+            <img id="predicted-move" src="" alt="Predicted Best Move" style="display: none;">
+        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
