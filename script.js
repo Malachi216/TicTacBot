@@ -1,34 +1,55 @@
-document.getElementById('upload-button').addEventListener('click', async () => {
-    const fileInput = document.getElementById('game-image');
-    const outputImg = document.getElementById('predicted-move');
+// Handle Drag and Drop
+const uploadBox = document.getElementById('upload-box');
+const gameImage = document.getElementById('game-image');
+const predictedMove = document.getElementById('predicted-move');
+const outputBox = document.getElementById('output-box');
 
-    if (fileInput.files.length === 0) {
-        alert('Please upload an image!');
-        return;
-    }
+// Add Drag and Drop Events
+uploadBox.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadBox.style.borderColor = 'white';
+});
 
-    const file = fileInput.files[0];
+uploadBox.addEventListener('dragleave', () => {
+    uploadBox.style.borderColor = 'grey';
+});
 
-    // Simulate sending the file to the backend and getting the prediction
-    const formData = new FormData();
-    formData.append('image', file);
-
-    try {
-        // Send to the backend (adjust the URL as needed)
-        const response = await fetch('https://your-backend-service/api/predict', {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to predict');
-        }
-
-        const data = await response.json();
-        outputImg.src = data.predictedImageUrl; // The URL of the generated image
-        outputImg.style.display = 'block';
-    } catch (error) {
-        console.error(error);
-        alert('Error predicting the next move.');
+uploadBox.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadBox.style.borderColor = 'grey';
+    const file = e.dataTransfer.files[0];
+    if (file) {
+        displayUploadedFile(file);
     }
 });
+
+// Add Change Event for File Input
+gameImage.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        displayUploadedFile(file);
+    }
+});
+
+// Display Uploaded File
+function displayUploadedFile(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        uploadBox.style.backgroundImage = `url(${e.target.result})`;
+        uploadBox.style.backgroundSize = 'cover';
+        uploadBox.style.backgroundPosition = 'center';
+    };
+    reader.readAsDataURL(file);
+
+    // Simulate Prediction after Upload
+    simulatePrediction();
+}
+
+// Simulate Prediction (Replace with Actual AI Logic)
+function simulatePrediction() {
+    setTimeout(() => {
+        outputBox.querySelector('p').style.display = 'none';
+        predictedMove.src = 'path/to/sample-prediction-image.png'; // Replace with dynamic AI output
+        predictedMove.style.display = 'block';
+    }, 2000); // Simulate 2s delay
+}

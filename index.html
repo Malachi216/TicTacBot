@@ -10,12 +10,16 @@
     <div class="container">
         <h1>TicTacBot</h1>
         <p>Upload a Tic-Tac-Toe game image, and the AI will predict the best move!</p>
-        <div class="upload-box">
+
+        <!-- Upload Box -->
+        <div class="box upload-box" id="upload-box">
+            <p>Upload game picture or Capture with Camera</p>
             <input type="file" id="game-image" accept="image/*">
-            <button id="upload-button">Upload & Predict</button>
         </div>
-        <div id="output-box">
-            <h2>Prediction:</h2>
+
+        <!-- Output Box -->
+        <div class="box output-box" id="output-box">
+            <p>Waiting for next move</p>
             <img id="predicted-move" src="" alt="Predicted Best Move" style="display: none;">
         </div>
     </div>
