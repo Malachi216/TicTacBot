@@ -53,3 +53,17 @@ function simulatePrediction() {
         predictedMove.style.display = 'block';
     }, 2000); // Simulate 2s delay
 }
+
+async function startCamera() {
+    try {
+        const video = document.getElementById('video');
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+    } catch (error) {
+        console.error("Error accessing camera: ", error);
+        alert("Unable to access the camera. Please check your permissions.");
+    }
+}
+
+// Start the camera when the page loads
+window.addEventListener('load', startCamera);

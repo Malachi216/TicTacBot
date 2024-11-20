@@ -70,7 +70,13 @@ p {
     opacity: 0;
     cursor: pointer;
 }
-
+#video {
+    width: 80%;
+    max-width: 640px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 /* Predicted Move Image */
 #predicted-move {
     max-width: 100%;
