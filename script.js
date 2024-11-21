@@ -31,6 +31,8 @@ gameImage.addEventListener('change', (e) => {
     }
 });
 
+
+
 // Display Uploaded File
 function displayUploadedFile(file) {
     const reader = new FileReader();
@@ -54,11 +56,49 @@ function simulatePrediction() {
     }, 2000); // Simulate 2s delay
 }
 
+// async function startCamera() {
+//     try {
+//         const video = document.getElementById('video');
+//         const initialText = document.getElementById('initialText');
+
+//         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+//         video.srcObject = stream;
+
+//         // Remove initial text when video starts playing
+//         video.addEventListener('playing', () => {
+//             video.classList.add('playing');
+//         });
+//     } catch (error) {
+//         console.error("Error accessing camera: ", error);
+//         alert("Unable to access the camera. Please check your permissions.");
+//     }
+// }
+
+let currentStream = null;
+let useRearCamera = true; // Default to rear camera
+
 async function startCamera() {
+    // Stop any active stream
+    if (currentStream) {
+        currentStream.getTracks().forEach(track => track.stop());
+    }
+
     try {
         const video = document.getElementById('video');
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        video.srcObject = stream;
+        const initialText = document.getElementById('initialText');
+        const constraints = {
+            video: {
+                facingMode: useRearCamera ? "environment" : "user"
+            }
+        };
+
+        currentStream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = currentStream;
+
+        // Remove initial text when video starts playing
+        video.addEventListener('playing', () => {
+            video.classList.add('playing');
+        });
     } catch (error) {
         console.error("Error accessing camera: ", error);
         alert("Unable to access the camera. Please check your permissions.");
@@ -67,3 +107,8 @@ async function startCamera() {
 
 // Start the camera when the page loads
 window.addEventListener('load', startCamera);
+
+document.getElementById('switchCamera').addEventListener('click', () => {
+    useRearCamera = !useRearCamera; // Toggle between front and rear cameras
+    startCamera();
+});

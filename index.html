@@ -13,15 +13,20 @@
 
         <!-- Upload Box -->
         <div class="box upload-box" id="upload-box">
-            <p>Upload game picture or Capture with Camera</p>
+            <p>Upload game picture.... </p>
             <input type="file" id="game-image" accept="image/*">
         </div>
-
-        <video id="video" autoplay playsinline></video>
+        <div id="video-container">
+            <video id="video" autoplay playsinline></video>
+            <div class = "initial-text" id="initialText">Loading video feed...</div>
+            <div class="controls">
+                <button id="switchCamera">Switch Camera</button>
+            </div>
+        </div>
 
         <!-- Output Box -->
         <div class="box output-box" id="output-box">
-            <p>Waiting for next move</p>
+            <p>Waiting for next move ...</p>
             <img id="predicted-move" src="" alt="Predicted Best Move" style="display: none;">
         </div>
     </div>
