@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacBot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TicTacBot</h1>
+        <p>Upload a Tic-Tac-Toe game image, and the AI will predict the best move!</p>
+
+        <!-- Upload Box -->
+        <div class="box upload-box" id="upload-box">
+            <p>Upload game picture.... </p>
+            <input type="file" id="game-image" accept="image/*">
+        </div>
+        <div id="video-container">
+            <video id="video" autoplay playsinline></video>
+            <div class = "initial-text" id="initialText">Loading video feed...</div>
+            <div class="controls">
+                <button id="switchCamera">Switch Camera</button>
+            </div>
+        </div>
+
+        <!-- Output Box -->
+        <div class="box output-box" id="output-box">
+            <p>Waiting for next move ...</p>
+            <img id="predicted-move" src="" alt="Predicted Best Move" style="display: none;">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
