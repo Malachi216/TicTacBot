@@ -1,1 +1,6 @@
+The script lets you play against an optimized TicTacToe AI.
 
+REQUIREMENTS...
+Functional Python environment
+Install Open-CV
+...CV2
