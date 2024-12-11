@@ -79,7 +79,10 @@ This project implements a system to classify Tic Tac Toe board states from image
 │   ├──index.html
 │   ├──script.js
 │   └──style.cs
-├── test_image_files/        # gameplay images to test the fully developed AI         
+├── test_image_files/        # gameplay images to test the fully developed AI
+├── Proposal.pdf             # Project Proposal
+├── Report.pdf               # Project Report
+├── PlayTicTac.ipynb         # Main Codes
 └── README.md                # Project overview and instructions
 ```
 
