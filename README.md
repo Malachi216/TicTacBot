@@ -64,17 +64,22 @@ This project implements a system to classify Tic Tac Toe board states from image
 ```
 .
 ├── data/
-│   ├── train/       # Training dataset
-│   ├── test/        # Testing dataset
+│   └── images/
+│         ├── train/       # Training dataset
+│         ├── test/        # Testing dataset
 ├── model/
 │   └── TicTacToe_model.h5  # Pre-trained CNN model
 ├── scripts/
 │   └──PlayTicTac.ipynb      # CNN training script, Minimax implementation & Board visualization script
-├── Others/                  # Unused Codes for Possible WebApp integration
+├── Others/                  # Unused Codes for A Simple MiniMax (Alpha-Beta) TicTacToeAI and Possible WebApp Integration
+│   ├── Simple_MiniMax_Alpha_Beta_TicTacToeAI/
+│   │   ├──TicTacToeAI.py
+│   │   └──requirement.txt
 │   ├──ReadMe.txt
 │   ├──index.html
 │   ├──script.js
-│   ├──style.cs           
+│   └──style.cs
+├── test_image_files/        # gameplay images to test the fully developed AI         
 └── README.md                # Project overview and instructions
 ```
 
