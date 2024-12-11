@@ -1,4 +1,4 @@
-### **Tic Tac Toe Symbol Classifier with Minimax AI**
+### **Tic-Tac-Toe Image Recognition and Gameplay with Minimax AI**
 
 ---
 
@@ -69,10 +69,12 @@ This project implements a system to classify Tic Tac Toe board states from image
 ├── model/
 │   └── tic_tac_toe_model.h5  # Pre-trained CNN model
 ├── scripts/
-│   ├── train_model.py       # CNN training script
-│   ├── classify_board.py    # Board classification script
-│   ├── minimax_ai.py        # Minimax implementation
-│   └── visualize_board.py   # Board visualization script
+│   └──PlayTicTac.ipynb      # CNN training script, Minimax implementation & Board visualization script
+├── Others/                  # Unused Codes for Possible WebApp integration
+│   ├──ReadMe.txt
+│   ├──index.html
+│   ├──script.js
+│   ├──style.cs           
 └── README.md                # Project overview and instructions
 ```
 
