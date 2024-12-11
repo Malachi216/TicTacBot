@@ -89,9 +89,6 @@ This project implements a system to classify Tic Tac Toe board states from image
 ---
 
 #### **Usage Example**
-```python
-from classify_board import classify_board
-from visualize_board import visualize_board_with_next_move
 
 # Load an image
 image_path = "path_to_board_image.png"
