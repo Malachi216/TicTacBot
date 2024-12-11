@@ -67,7 +67,7 @@ This project implements a system to classify Tic Tac Toe board states from image
 │   ├── train/       # Training dataset
 │   ├── test/        # Testing dataset
 ├── model/
-│   └── tic_tac_toe_model.h5  # Pre-trained CNN model
+│   └── TicTacToe_model.h5  # Pre-trained CNN model
 ├── scripts/
 │   └──PlayTicTac.ipynb      # CNN training script, Minimax implementation & Board visualization script
 ├── Others/                  # Unused Codes for Possible WebApp integration
