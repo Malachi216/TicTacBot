@@ -86,19 +86,6 @@ This project implements a system to classify Tic Tac Toe board states from image
 └── README.md                # Project overview and instructions
 ```
 
----
-
-#### **Usage Example**
-
-# Load an image
-image_path = "path_to_board_image.png"
-
-# Classify board state
-board_state = classify_board(image_path)
-
-# Visualize board and predict next move
-visualize_board_with_next_move(board_state)
-```
 
 ---
 
@@ -108,5 +95,3 @@ visualize_board_with_next_move(board_state)
 3. Enhance CNN model accuracy with more robust training data.
 
 ---
-
-Let me know if you need additional details or edits for this!
